@@ -21,7 +21,7 @@ const Index = () => {
         <Button title={"Open Bottom Sheet"} onPress={handleOpenPress} />
       </View>
 
-      {/* BottomSheet */}
+      {/* BottomSheet 店舗詳細 */}
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}

@@ -62,7 +62,7 @@ const MainLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="otherMenu"
+        name="other"
         options={{
           title: "その他",
           tabBarLabel: "その他",
