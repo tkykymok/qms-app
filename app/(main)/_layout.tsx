@@ -12,6 +12,9 @@ const MainLayout = () => {
         headerTitleStyle: {
           color: "#374151",
         },
+        tabBarLabelStyle: {
+          marginBottom: 5,
+        },
         tabBarActiveTintColor: "#3b82f6",
         tabBarInactiveTintColor: "#374151",
       }}
@@ -44,7 +47,6 @@ const MainLayout = () => {
           ),
         }}
       />
-
       <Tabs.Screen
         name="reservationHistory"
         options={{
@@ -59,7 +61,6 @@ const MainLayout = () => {
           ),
         }}
       />
-
       <Tabs.Screen
         name="otherMenu"
         options={{
