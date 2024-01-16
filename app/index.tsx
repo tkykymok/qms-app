@@ -9,7 +9,7 @@ const Index = () => {
       {isLoggedIn && <Redirect href={"./(tabs)"} />}
       <View className="flex-1 justify-center items-center">
         <Text className="text-blue-400 mb-4">TOP</Text>
-        <Link href="(tabs)">店舗検索</Link>
+        <Link href={"./(tabs)"}>店舗検索</Link>
       </View>
     </>
   );
