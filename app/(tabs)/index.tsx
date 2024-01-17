@@ -1,31 +1,22 @@
-import { Button, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
+import GoogleMapWithInputView from "../../components/organisms/GoogleMapWithInputView";
 
 const Index = () => {
   // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  // variables
-  const snapPoints = useMemo(() => ["50%"], []);
-
-  const handleOpenPress = () => {
-    if (!bottomSheetRef.current) return;
-    bottomSheetRef.current.expand();
-  };
-
   return (
     <>
-      <View className="flex-1 justify-center items-center">
-        <Text className="text-lg mb-4">店舗検索</Text>
-        <Button title={"Open Bottom Sheet"} onPress={handleOpenPress} />
-      </View>
+      {/* GoogleMap */}
+      <GoogleMapWithInputView />
 
       {/* BottomSheet 店舗詳細 */}
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}
-        snapPoints={snapPoints}
+        snapPoints={["50%"]}
         enablePanDownToClose
         backdropComponent={(props) => (
           <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />
