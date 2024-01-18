@@ -15,17 +15,24 @@ interface GoogleMapViewProps {
 const GoogleMapView: FC<GoogleMapViewProps> = ({
   children,
   currentPosition,
-}) => (
-  <MapView
-    mapPadding={{ top: 15, right: 0, bottom: 0, left: 0 }}
-    provider={PROVIDER_GOOGLE}
-    style={{ flex: 1 }}
-    region={currentPosition}
-    showsUserLocation
-    showsMyLocationButton
-  >
-    {children}
-  </MapView>
-);
+}) => {
+  const handleRegionChange = (region: Region) => {
+    console.log("New Region:", region);
+  };
+
+  return (
+    <MapView
+      mapPadding={{ top: 15, right: 0, bottom: 0, left: 0 }}
+      provider={PROVIDER_GOOGLE}
+      style={{ flex: 1 }}
+      region={currentPosition}
+      showsUserLocation
+      showsMyLocationButton
+      onRegionChangeComplete={handleRegionChange}
+    >
+      {children}
+    </MapView>
+  );
+};
 
 export default GoogleMapView;
