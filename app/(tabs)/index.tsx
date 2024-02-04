@@ -70,7 +70,7 @@ const Index = () => {
         handleOnPressSearchResult={handleOnPressSearchResult}
       />
 
-      {/* BottomSheet 店舗詳細 */}
+      {/*BottomSheet 店舗詳細*/}
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}
