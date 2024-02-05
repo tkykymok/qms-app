@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   // ベースURLは環境変数から取得
-  // baseURL: process.env.EXPO_PUBLIC_API_BASE_URL,
+  baseURL: process.env.EXPO_PUBLIC_API_BASE_URL,
   // タイムアウト設定は10分（1000ミリ秒 * 60秒 * 10）
   timeout: 1000 * 60 * 10,
   // クロスドメインのリクエストであってもクレデンシャル（例: cookies）を送信する設定
@@ -36,7 +36,7 @@ axiosInstance.interceptors.response.use(
       // 未認証エラーの処理
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 export default axiosInstance;

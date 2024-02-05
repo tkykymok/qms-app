@@ -6,10 +6,14 @@ import { GooglePlaceDetail } from "react-native-google-places-autocomplete";
 import GoogleMapView from "../../components/molecules/GoogleMapView";
 import GoogleMapSearchInput from "../../components/molecules/GoogleMapSearchInput";
 import * as Location from "expo-location";
+import { Store } from "../../model/store";
+import StoreDetailBottomSheet from "../../components/molecules/StoreDetailBottomSheet";
 
 const Index = () => {
   // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
+  const [stores, setStores] = useState<Store[]>([]);
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
 
   // 現在地
   const [currentPosition, setCurrentPosition] = useState<Region>({
@@ -53,16 +57,19 @@ const Index = () => {
   return (
     <>
       {/* GoogleMap */}
-      <GoogleMapView currentPosition={currentPosition}>
-        {locations &&
-          locations.map((location) => (
+      <GoogleMapView currentPosition={currentPosition} setStores={setStores}>
+        {stores &&
+          stores.map((store) => (
             <Marker
-              key={location.id}
+              key={store.storeId}
               coordinate={{
-                latitude: location.latitude,
-                longitude: location.longitude,
+                latitude: store.latitude,
+                longitude: store.longitude,
               }}
-              onPress={() => bottomSheetRef.current?.expand()}
+              onPress={() => {
+                setSelectedStore(store);
+                bottomSheetRef.current?.expand();
+              }}
             />
           ))}
       </GoogleMapView>
@@ -71,19 +78,10 @@ const Index = () => {
       />
 
       {/* BottomSheet 店舗詳細 */}
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={-1}
-        snapPoints={["50%"]}
-        enablePanDownToClose
-        backdropComponent={(props) => (
-          <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />
-        )}
-      >
-        <View className="flex-1 justify-center items-center">
-          <Text className="text-lg mb-4">Bottom Sheet</Text>
-        </View>
-      </BottomSheet>
+      <StoreDetailBottomSheet
+        store={selectedStore}
+        bottomSheetRef={bottomSheetRef}
+      />
     </>
   );
 };

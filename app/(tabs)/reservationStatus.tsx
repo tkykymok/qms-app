@@ -1,9 +1,12 @@
+import React from "react";
 import { Text, View } from "react-native";
+import WaitingIcons from "../../components/molecules/WaitingPerson";
 
 const ReservationStatus = () => {
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text className="text-lg mb-4">予約状況</Text>
+    <View>
+      <Text>予約状況</Text>
+      <WaitingIcons waitingCount={20} includeSelfInOrder={5} />
     </View>
   );
 };
