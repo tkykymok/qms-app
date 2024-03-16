@@ -22,7 +22,7 @@ const WaitingIcons: React.FC<WaitingIconsProps> = ({
     icons.push(
       <Ionicons
         key={`person_${i}`}
-        name="ios-person"
+        name="person" // Updated this line
         size={20}
         color={color}
         style={{ margin: 4 }} // React NativeではclassNameの代わりにstyleを使用

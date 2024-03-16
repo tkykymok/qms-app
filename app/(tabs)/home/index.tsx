@@ -3,11 +3,11 @@ import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 import React, { useEffect, useRef, useState } from "react";
 import { Marker, Region } from "react-native-maps";
 import { GooglePlaceDetail } from "react-native-google-places-autocomplete";
-import GoogleMapView from "../../components/molecules/GoogleMapView";
-import GoogleMapSearchInput from "../../components/molecules/GoogleMapSearchInput";
+import GoogleMapView from "../../../components/molecules/GoogleMapView";
+import GoogleMapSearchInput from "../../../components/molecules/GoogleMapSearchInput";
 import * as Location from "expo-location";
-import { Store } from "../../model/store";
-import StoreDetailBottomSheet from "../../components/molecules/StoreDetailBottomSheet";
+import { Store } from "../../../model/store";
+import StoreDetailBottomSheet from "../../../components/molecules/StoreDetailBottomSheet";
 
 const Index = () => {
   // ref

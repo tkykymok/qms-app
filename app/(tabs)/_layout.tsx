@@ -4,7 +4,6 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 const MainLayout = () => {
   return (
     <Tabs
-      initialRouteName={"index"}
       screenOptions={{
         headerStyle: {
           backgroundColor: "#d1d5db",
@@ -20,7 +19,7 @@ const MainLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           headerShown: false,
           tabBarLabel: "店舗検索",

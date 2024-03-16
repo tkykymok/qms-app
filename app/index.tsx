@@ -32,8 +32,8 @@ const Index = () => {
       {isLoggedIn && <Redirect href={"./(tabs)"} />}
 
       <Text className="text-blue-400">TOP</Text>
-      <Link href={"./(tabs)"}>店舗検索</Link>
-      <Pressable onPress={() => router.push("./(tabs)")}>
+      <Link href={"./(tabs)/home"}>店舗検索</Link>
+      <Pressable onPress={() => router.replace("./(tabs)")}>
         <Text className="text-blue-400">店舗検索(push)</Text>
       </Pressable>
       <Link href={"./(tabs2)"}>TODOサンプル</Link>
